@@ -18,7 +18,6 @@ public class FindCellNumbers implements CommandLineGame {
     @Override
     public boolean run() {
 
-        FindCellNumbers findCellNumbers= new FindCellNumbers();
         System.out.println("Siz"+ getGameName()+ "o'yiniga hush kelibsiz!");
         System.out.println("Quyida sizni o'yin qoidalari bilan tanishtiraman.");
         getRules();
@@ -33,9 +32,9 @@ public class FindCellNumbers implements CommandLineGame {
     //    findCellNumbers.generate();
         for(int k=0;k<5;k++) {
             System.out.println((k+1)+" - imkoniyat");
-            findCellNumbers.userInput();                                               //checking
+            userInput();                                               //checking
             //birinchi qoida bo'yicha tekshirish
-            findCellNumbers.checking();
+            checking();
         }
         if (result.equals(attempString)) {System.out.println("Siz yutdingiz generatsiya qilingan 4 lik"); res=true;}
                                     else
