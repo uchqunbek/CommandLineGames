@@ -16,8 +16,8 @@ public class FindNumber implements CommandLineGame{
         /**
          * TODO: 1. O'yin boshlanganligi, qisqacha o'yin qoidalari, maksimal, minimal son haqida ma'lumot chiqaring (sout).
          * */
-        //SecureRandom r = new SecureRandom();
-        //this.randomNumber = r.ints(this.min, this.max).findFirst().getAsInt();
+        SecureRandom r = new SecureRandom();
+        this.randomNumber = r.ints(this.min, this.max).findFirst().getAsInt();
         /**
          * TODO: 2. Sikl ichida foydalanuvchidan son kiritishini so'rang. Son generatsiya qilingan sondan katta yo kichikligini, yoki foydalanuvchi to'g'ri topganligini ko'rsating. Agarda son to'g'ri topilmagan bo'lsa, siklni userChanceMaxCount martagacha takrorlash mumkin. Shu sikl ichida foydalanuvchi sonni topolmasa, foydalanuvchi o'yinni yutqazgan deb toping va false qaytaring. Agarda son to'g'ri topilgan bo'lsa, foydalanuvchini tabriklang va true qaytaring.
          * */
