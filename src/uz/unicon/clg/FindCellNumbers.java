@@ -19,12 +19,12 @@ public class FindCellNumbers implements CommandLineGame {
          * TODO: 1. O'yin boshlanganligi, qisqacha o'yin qoidalari, maksimal, minimal son haqida ma'lumot chiqaring (sout).
          * */
 
-        cells = new int[4];
-        SecureRandom r = new SecureRandom();
-        IntStream intStream = r.ints(this.min, this.max);
-        for (int i = 0; i < cells.length; i++) {
-            cells[i] = intStream.findAny().getAsInt();
-        }
+//        cells = new int[4];
+//        SecureRandom r = new SecureRandom();
+//        IntStream intStream = r.ints(this.min, this.max);
+//        for (int i = 0; i < cells.length; i++) {
+//            cells[i] = intStream.findAny().getAsInt();
+//        }
         /**
          * TODO: 2. Sikl ichida foydalanuvchidan probel bilan ajratilgan 4 ta 0 da 9 gacha son kiritishni so'rang. Kiritilgan sonlarni 4 ta int ga ajrating va bu sonlar generatsiya qilingon sonlar bilan ketma-ketligi bo'yicha aynan bir xil ekanligini tekshiring. Ekranga o'rni to'g'ri kelgan sonlarni chiqaring, o'rni to'g'ri kelmagan, ammo aslida to'g'ri topilgan sonlar o'rnida *, umuman to'g'ri kelmagan sonlar o'rnida - chiqaring. Foydalanuvchi userChanceMaxCount marta urinishda sonlarni ketma-ketligi bilan topsa true, aks holda false qaytaring.
          * Misol uchun kompyuter 5 3 9 0 sonlarini generatsiya qildi
