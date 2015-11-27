@@ -3,8 +3,6 @@ package uz.unicon.clg;
 import java.util.Scanner;
 
 public class FindCellNumbers implements CommandLineGame {
-    private final static int min = 0;
-    private final static int max = 9;
     private int[] cells;
     public static final int userChanceMaxCount = 5;
     String[] Qoidalar = new String[5];
