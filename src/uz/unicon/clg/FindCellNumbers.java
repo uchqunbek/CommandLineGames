@@ -8,9 +8,7 @@ public class FindCellNumbers implements CommandLineGame {
     private int[] cells;
     public static final int userChanceMaxCount = 5;
     String[] Qoidalar = new String[5];
-
     int[] attempt = new int[4];
-
     String[] attempString;
     String result[] = new String[4];
     protected boolean res = false;
@@ -26,7 +24,6 @@ public class FindCellNumbers implements CommandLineGame {
          * TODO: 1. O'yin boshlanganligi, qisqacha o'yin qoidalari, maksimal, minimal son haqida ma'lumot chiqaring (sout).
          * */
         generate();
-
         for (int k = 0; k < 5; k++) {
             System.out.println((k + 1) + " - imkoniyat");
             userInput();                                               //checking
