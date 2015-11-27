@@ -8,7 +8,9 @@ public class FindCellNumbers implements CommandLineGame {
     private int[] cells;
     public static final int userChanceMaxCount = 5;
     String[] Qoidalar = new String[5];
-    int attempt[] = new int[4];
+
+    int[] attempt = new int[4];
+
     String[] attempString;
     String result[] = new String[4];
     protected boolean res = false;
@@ -16,14 +18,15 @@ public class FindCellNumbers implements CommandLineGame {
     @Override
     public boolean run() {
 
-        System.out.println("Siz" + getGameName() + "o'yiniga hush kelibsiz!");
+        System.out.println("Siz " + getGameName() + " o'yiniga hush kelibsiz!");
         System.out.println("Quyida sizni o'yin qoidalari bilan tanishtiraman.");
         getRules();
         System.out.println("Qoidalar bilan tanishib bo'lgan bo'lsangiz demak o'yin bowlandi!");
         /**
          * TODO: 1. O'yin boshlanganligi, qisqacha o'yin qoidalari, maksimal, minimal son haqida ma'lumot chiqaring (sout).
          * */
-        //    findCellNumbers.generate();
+        generate();
+
         for (int k = 0; k < 5; k++) {
             System.out.println((k + 1) + " - imkoniyat");
             userInput();                                               //checking
@@ -102,11 +105,11 @@ public class FindCellNumbers implements CommandLineGame {
             result[i] = "- ";
         }
         for (int i = 0; i < 4; i++) {
-            if (this.attempt[i] == this.cells[i]) result[i] = this.attempString[i];
+            if (attempt[i] == cells[i]) result[i] = attempString[i];
 
             else {
                 for (int j = 0; j < 4; j++)
-                    if ((attempt[i] == this.cells[j]) & (i != j)) result[i] = "*";
+                    if ((attempt[i] == cells[j]) & (i != j)) result[i] = "*";
             }
             System.out.print(result[i] + " ");
         }
