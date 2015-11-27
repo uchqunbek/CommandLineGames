@@ -1,8 +1,5 @@
 package uz.unicon.clg;
 
-
-import javafx.application.Application;
-
 import java.util.Scanner;
 
 public class Main {
@@ -25,10 +22,10 @@ public class Main {
 
             System.out.println("Choose game: ...");
             int chooseGame = scanner.nextInt();
-            System.out.println("Choosen game = " + games[chooseGame].getGameName());
+            System.out.println("Choosen game = " + games[chooseGame - 1].getGameName());
 
             gameStat.setGamesPlayed(gamesPlayed++);
-            if (games[chooseGame].run())
+            if (games[chooseGame - 1].run())
                 gameStat.setWinNumber(winNumber++);
 
 
