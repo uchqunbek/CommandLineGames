@@ -8,32 +8,32 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	    CommandLineGame[] games = new CommandLineGame[] {new FindNumber(), new FindCellNumbers()};
+        CommandLineGame[] games = new CommandLineGame[]{new FindNumber(), new FindCellNumbers()};
         GameStat gameStat = new GameStat();
 
         int gamesPlayed = 1;
         int winNumber = 1;
 
-        while (true){
+        while (true) {
 
 
-        for(int x = 1; x <= games.length; x ++){
-            System.out.println(x + ". " + games[x-1].getGameName());
-        }
+            for (int x = 1; x <= games.length; x++) {
+                System.out.println(x + ". " + games[x - 1].getGameName());
+            }
 
-        Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose game: ...");
-        int chooseGame = scanner.nextInt();
-        System.out.println("Choosen game = " + games[chooseGame].getGameName());
+            System.out.println("Choose game: ...");
+            int chooseGame = scanner.nextInt();
+            System.out.println("Choosen game = " + games[chooseGame].getGameName());
 
-        gameStat.setGamesPlayed(gamesPlayed++);
-        gameStat.setWinNumber(winNumber++);
-        games[chooseGame].run();
+            gameStat.setGamesPlayed(gamesPlayed++);
+            if (games[chooseGame].run())
+                gameStat.setWinNumber(winNumber++);
 
 
-        System.out.println("Games Played = " + gameStat.getGamesPlayed());
-        System.out.println("Win Number = " + gameStat.getWinNumber());
+            System.out.println("Games Played = " + gameStat.getGamesPlayed());
+            System.out.println("Win Number = " + gameStat.getWinNumber());
 
         }
 
