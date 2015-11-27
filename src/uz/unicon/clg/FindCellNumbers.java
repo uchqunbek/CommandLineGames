@@ -37,6 +37,7 @@ public class FindCellNumbers implements CommandLineGame {
             System.out.println("Siz yutkazdingiz generatsiya qilingan 4 lik");
         for (int i = 0; i < cells.length; i++)
             System.out.print(cells[i] + " ");
+        System.out.println();
 
 
         /**
