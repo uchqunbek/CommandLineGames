@@ -10,16 +10,16 @@ public class FindCellNumbers implements CommandLineGame {
     private final static int max = 9;
     private int[] cells;
     public static final int userChanceMaxCount = 5;
-    String [] Qoidalar=new String[5];
-    int attempt []=new int[4];
-    String [] attempString;
-    String result[]=new String[4];
-    protected boolean res=false;
+    String[] Qoidalar = new String[5];
+    int[] attempt = new int[4];
+    String[] attempString;
+    String result[] = new String[4];
+    protected boolean res = false;
+
     @Override
     public boolean run() {
 
-        FindCellNumbers findCellNumbers= new FindCellNumbers();
-        System.out.println("Siz"+ getGameName()+ "o'yiniga hush kelibsiz!");
+        System.out.println("Siz " + getGameName() + " o'yiniga hush kelibsiz!");
         System.out.println("Quyida sizni o'yin qoidalari bilan tanishtiraman.");
         getRules();
         System.out.println("Qoidalar bilan tanishib bo'lgan bo'lsangiz demak o'yin bowlandi!");
@@ -28,21 +28,22 @@ public class FindCellNumbers implements CommandLineGame {
          * */
         cells = new int[4];                             //generator
         for (int i = 0; i < cells.length; i++) {
-            cells[i] = (int)(Math.random()*9);
+            cells[i] = (int) (Math.random() * 9);
         }
-    //    findCellNumbers.generate();
-        for(int k=0;k<5;k++) {
-            System.out.println((k+1)+" - imkoniyat");
-            findCellNumbers.userInput();                                               //checking
+        //    findCellNumbers.generate();
+        for (int k = 0; k < 5; k++) {
+            System.out.println((k + 1) + " - imkoniyat");
+            userInput();                                               //checking
             //birinchi qoida bo'yicha tekshirish
-            findCellNumbers.checking();
+            checking();
         }
-        if (result.equals(attempString)) {System.out.println("Siz yutdingiz generatsiya qilingan 4 lik"); res=true;}
-                                    else
-                                         System.out.println("Siz yutkazdingiz generatsiya qilingan 4 lik");
-            for(int i=0;i<cells.length;i++)
-                System.out.print(cells[i]+" ");
-
+        if (result.equals(attempString)) {
+            System.out.println("Siz yutdingiz generatsiya qilingan 4 lik");
+            res = true;
+        } else
+            System.out.println("Siz yutkazdingiz generatsiya qilingan 4 lik");
+        for (int i = 0; i < cells.length; i++)
+            System.out.print(cells[i] + " ");
 
 
         /**
@@ -65,12 +66,12 @@ public class FindCellNumbers implements CommandLineGame {
 
     @Override
     public String getRules() {
-        Qoidalar[0]="Demak, sizda 5 ta imkon mavjud. ";
-        Qoidalar[1]="Siz shu 5 urunish orqali maksimal aniqlik bilan kompyuter Generatsiya qilgan 4 ta sonni va ularning joylashish tartibini topishingiz kerak.";
-        Qoidalar[2]="Agar siz sonni ham u joylashgan o'rnini ham topsangiz o'wa son, sonni topgsangizu lekin uning o'rnini topa olmasangiz *, ulardan ikkisini ham topa olmasangiz - belgisi chiqadi. ";
-        Qoidalar[3]="Minimal son : 0, maksimal son esa  9 ga teng";
-        Qoidalar[4]="Sonlarni probel bilan ajratib kiriting. Masalan: 5 3 9 0";
-        for (int i=0;i<5;i++)
+        Qoidalar[0] = "Demak, sizda 5 ta imkon mavjud. ";
+        Qoidalar[1] = "Siz shu 5 urunish orqali maksimal aniqlik bilan kompyuter Generatsiya qilgan 4 ta sonni va ularning joylashish tartibini topishingiz kerak.";
+        Qoidalar[2] = "Agar siz sonni ham u joylashgan o'rnini ham topsangiz o'wa son, sonni topgsangizu lekin uning o'rnini topa olmasangiz *, ulardan ikkisini ham topa olmasangiz - belgisi chiqadi. ";
+        Qoidalar[3] = "Minimal son : 0, maksimal son esa  9 ga teng";
+        Qoidalar[4] = "Sonlarni probel bilan ajratib kiriting. Masalan: 5 3 9 0";
+        for (int i = 0; i < 5; i++)
             System.out.println(Qoidalar[i]);
 
         /**
@@ -78,10 +79,12 @@ public class FindCellNumbers implements CommandLineGame {
          * */
         return Qoidalar.toString();
     }
-    protected void generate(){
+
+    protected void generate() {
 
 
     }
+
     public void userInput() {
         Scanner input = new Scanner(System.in);           //vvod dannix i razdelenie
 
@@ -94,19 +97,21 @@ public class FindCellNumbers implements CommandLineGame {
             } catch (NumberFormatException e) {
                 System.err.println("Siz sonlarni noto'g'ri formatda kiritdingiz, sizning joriy imkoniyatingiz kuydi!");
             }
-            if ((attempt[i]<0)||attempt[i]>9) System.err.println("Siz qoidani buzdingiz,0 dan kichik yoki 9 dan katta sonni kiritish mumkin emas, sizning joriy imkoniyatingiz kuydi!!");
+            if ((attempt[i] < 0) || attempt[i] > 9)
+                System.err.println("Siz qoidani buzdingiz,0 dan kichik yoki 9 dan katta sonni kiritish mumkin emas, sizning joriy imkoniyatingiz kuydi!!");
         }
     }
+
     public void checking() {
         for (int i = 0; i < 4; i++) {
             result[i] = "- ";
         }
         for (int i = 0; i < 4; i++) {
-            if (this.attempt[i] == this.cells[i]) result[i] = this.attempString[i];
+            if (attempt[i] == cells[i]) result[i] = attempString[i];
 
             else {
                 for (int j = 0; j < 4; j++)
-                    if ((attempt[i] == this.cells[j]) & (i != j)) result[i] = "*";
+                    if ((attempt[i] == cells[j]) & (i != j)) result[i] = "*";
             }
             System.out.print(result[i] + " ");
         }
