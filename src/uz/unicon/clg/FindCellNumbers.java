@@ -2,9 +2,6 @@ package uz.unicon.clg;
 
 import java.util.Scanner;
 
-/**
- * Created by Uchqun on 26.11.2015.
- */
 public class FindCellNumbers implements CommandLineGame {
     private final static int min = 0;
     private final static int max = 9;
